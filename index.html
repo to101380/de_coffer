@@ -23,7 +23,7 @@
 
 	<meta name="google-site-verification" content="b_x8SoYFi5pJRVEkVqRtzjW2Gn7YOQxAoLgsvW-3yIA" />
 
-    <title> Decoffer</title>
+    <title> Decoffer </title>
 
 </head>
 
@@ -32,35 +32,152 @@
 
 	<p>我的地址：<span id="my_address"></span></p>
 	<p>我的餘額：<span id="my_balance"></span></p>
+
+	<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#save_coffer">
+	  存入ETH
+	</button>
     
     <hr/>
+    <p> 狀態燈 : <span id="if_have"></span></p>
+    <p>我的保險櫃地址：<span id="coffer_number"></span></p>
+    <p>鎖入的ETH：<span id="coffer_value"></span> ETH</span></p>    
+    <p>目前可提領金額: <span id="can_be_withdrawn"></span> ETH</p>    
+    <p>解鎖條件 : 支付 <span id="coffer_WBC_balance"></span> /  <span id="payable_WBC"></span> WBC</p>
+    <p>我的WBC餘額 : <span id="my_WBC_balance"></span></p>
     
-    <p>目前合約總獎池：<span id="total_balance"></span></p>
-    <p>目前合約總參與人數：<span id="join_count"></span></p>
-    <p>目前合約總參與地址：<span id="join_address"></span></p>
+	<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#withdraw">
+	  提領
+	</button>
+	
 
-    <button id="invest" onclick="invest()">購買 - 投資</button>
-    <br/>
-    <button id="distribute">分紅</button>
+    <hr/>
+    <p>pool <span id="now_balance"></span> ETH</p>
+    <p>平台目前保險箱數量 : <span id="coffer_vol"></span></p>
+  
+    <p>累積推薦獎金 : <span id="RT_balance"></span> ETH</p>    
+   
+    <p>我的推薦人 : <span id="generate_RT_no"></span></p>
+    <p>第一代人數 : <span id="RT_no_01"></span></p>
+    <p>第二代人數 : <span id="RT_no_02"></span></p>
 
-    <!-- 練習打出圖片與斷行 -->
+    <hr/>
+    <p>手續費：<span id="fee"></span></p>
+    <p>WBC手續費：<span id="WBC_fee"></span></p>
+    <p>解倉應付利息比例：<span id="unlock_fee"></span></p>
+    <p>推薦獎金1代：<span id="commision"></span></p>
+    <p>推薦獎金2代：<span id="commision_02"></span></p>
+    <p>提領傭金條件：<span id="withdraw_commision"></span></p>
+    <p>swap 分配股東比例：<span id="distribute_fee"></span></p>
+    <hr/>
+  
+
+
+
+    <!-- save_coffer -->
+	<div class="modal fade" id="save_coffer" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+
+	        <h5 class="modal-title" id="exampleModalCenterTitle">save_coffer</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+
+	      </div>
+
+	      <div class="modal-body">
+	      	<div class="container"  id="ticket">
+		        <div class="input-group mb-3">
+				  <input type="text" class="form-control quantity" placeholder="0.00" aria-label="Recipient's username" aria-describedby="basic-addon2">
+				  <div class="input-group-append">
+				    <span class="input-group-text" id="basic-addon2">ETH</span>
+				  </div>				 
+				</div>
+				<P>我是 <span id="check_address"></span> </P>
+				<p>手續費 : <span id="_fee"></span> ETH</p>
+				<P>實際鎖入的枚數 <span id="real_save"></span> ETH</P>
+				<p>我將會拿到 <span id="WBC_GET"></span> WBC</p>
+				<p>解鎖保險櫃時應付 <span id="_payable_WBC"> </span> WBC</p>
+				<a  href="" data-toggle="collapse"  data-target="#recommender" aria-expanded="false" aria-controls="collapseExample">
+				    我的推薦人
+				</a>				
+				<div class="collapse" id="recommender">
+					  <div class="card card-body">
+					  	<div class="input-group mb-3">
+						  <input type="text" class="form-control recommender" placeholder="推薦人地址" aria-label="Recipient's username" aria-describedby="basic-addon2">										 
+						</div>	
+						<div>
+						  	<p>我的推薦人是 : <span id="input_recommender"> </span></p>
+						  	<p>他將會收到 <span id="give_commision"></span> 枚ETH的推薦傭金。</p>
+						</div>				    
+					  </div>					  
+				</div>
+			</div>
+	      </div>
+
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" id="comfirm_save">Save changes</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+	<!-- withdraw -->
+	<div class="modal fade" id="withdraw" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalCenterTitle">withdraw</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="container" id="withdraw_eth">		       
+		        <div class="input-group mb-3">
+					<input type="text" class="form-control _withdraw" placeholder="提領金額" aria-label="Recipient's username" aria-describedby="basic-addon2">										 
+				</div>	
+				<p>我可以提領的餘額 : <span id="comfirm_can_be_withdraw"></span> ETH</p>				
+
+			</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Save changes</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+    
+    
+	
+
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
 	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js" integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
 
+	
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	 
+	<!-- Customized js -->
+	<script src="./static/js/index.js"></script>
+	<script src="./static/js/recommender_contract.js"></script>
+	<script src="./static/js/fee.js"></script>
+	
+
+
 
 </body>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
- 
-<!-- Customized js -->
-<script src="./static/js/index.js"></script>
 
 </html>
