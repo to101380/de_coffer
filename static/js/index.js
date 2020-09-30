@@ -53,6 +53,7 @@
 
 		var coinbase;
 		
+		
 		//smart_contract
 		var de_coffer;		
 		var CT;	
@@ -121,7 +122,8 @@
 			var if_have =await de_coffer.methods.if_have(coinbase).call({});
 			if(if_have == true){
 				$("#if_have").text("已上鎖");
-				$("#OVCO").css("display","block");	
+				$("#OVCO").css("display","block");
+				$("#main_body").css("display","block");
 
 			}else{				
 				$("#SVCO").css("display","block");	
@@ -264,4 +266,3 @@
 
 
 
-		
