@@ -26,15 +26,30 @@
 
 			//RT
 			var RT_balance =await RT.methods.balanceOf(coinbase).call({});
-			$("#RT_balance").text(toPoint(RT_balance/(1*10**18)));	
+			$("#RT_balance").text(toPoint(RT_balance/(1*10**18)));
+			$("#accumulation_RT").text(toPoint(RT_balance/(1*10**18)));
+			if( RT_balance >= 3*10**18){
+				$("#can_withdraw_commision").text(toPoint(RT_balance/(1*10**18)));
+			}else{
+				$("#can_withdraw_commision").text("0");
+			}
 
 			//recommender_number
+			var MY_recommender = await de_coffer.methods.MY_recommender(coinbase).call({});
 			var RT_no_01 =await de_coffer.methods.recommended_number(coinbase,1).call({});
 			var RT_no_02 =await de_coffer.methods.recommended_number(coinbase,2).call({});
 			var sum_RT_no = parseInt(RT_no_01)+parseInt(RT_no_02);
+			$("#have_recommender").text(MY_recommender);
 			$("#RT_no_01").text(RT_no_01);
 			$("#RT_no_02").text(RT_no_02);
 			$("#generate_RT_no").text(sum_RT_no);
+
+
+			//platform
+			var coffer_vol = await de_coffer.methods.coffer_vol().call({});
+			var now_balance = await de_coffer.methods.now_balance().call({});			
+			$("#coffer_vol").text(coffer_vol);
+			$("#now_balance").text(web3.utils.fromWei(now_balance));
 
 					
 

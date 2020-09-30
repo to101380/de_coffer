@@ -47,11 +47,13 @@
 			var distribute_fee = await de_coffer.methods.get_distribute_fee().call({});
 			$("#fee").text(toPercent(get_fee/1000));
 			$("#_fee").text(toPercent(get_fee/1000)); 
+			$("#ov_fee").text(toPercent(get_fee/1000)); 
 			$("#WBC_fee").text(toPercent(WBC_fee/1000));
 			$("#unlock_fee").text(toPercent(unlock_fee/1000));
 			$("#commision").text(toPercent(commision_fee/1000));
 			$("#commision_02").text(toPercent(commision_fee_02/1000));
 			$("#withdraw_commision").text(web3.utils.fromWei(Withdraw_Commision));
+			$("#withdraw_condition").text(web3.utils.fromWei(Withdraw_Commision));
 			$("#distribute_fee").text(toPercent( distribute_fee/1000));
 
 			
@@ -64,10 +66,7 @@
 
 
 
-
 	
-
-
 
 
 

@@ -28,13 +28,74 @@
 </head>
 
 <body>
-    <h1>天天分紅</h1>
 
-	<p>我的地址：<span id="my_address"></span></p>
-	<p>我的餘額：<span id="my_balance"></span></p>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	   <a class="navbar-brand" href="#">
+	    <img src="./static/css/img/YUNBO_LOGO_black.png" width="30" height="30" class="d-inline-block align-top" alt="">
+	    Decoffer
+	  </a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+	    <div class="navbar-nav">
+	      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+	      <a class="nav-item nav-link" href="#">我的資產</a>	      
+	    </div>
+	  </div>
+	</nav>
+	<section class="main_body">
+
+		<div class="container">
+		  <div class="row justify-content-md-center">
+		    <div class="col-md-12">
+
+		    	<div class=" coffer_card">
+		    		<div class=" row justify-content-between my_address">
+		    			<div class="status"></div>
+		    			<div style="margin-right:8px;"><span id="my_address"></span></div>
+		    		</div>
+			    	<div class="coffer_img"></div>
+			      	<button type="button" class="btn btn-info btn-sm " id="SVCO" data-toggle="modal" data-target="#save_coffer">
+					  存入ETH
+					</button>
+					<button type="button" class="btn btn-info btn-sm " id="OVCO" data-toggle="modal" data-target="#overweight">
+					  加碼存入ETH
+					</button>
+				</div>
+
+		    </div>		   	    
+		  </div>		  
+		</div>
+
+	</section>
+	<section class="main_body">
+
+		<div class="container">
+		  <div class="row justify-content-md-center">
+		    <div class="col col-lg-2">
+		      1 of 3
+		    </div>
+		    <div class="col-md-auto">
+		      Variable width content
+		    </div>
+		    <div class="col col-lg-2">
+		      3 of 3
+		    </div>
+		  </div>
+		</div>
+
+	</section>
+    
+
+	
+	
 
 	<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#save_coffer">
 	  存入ETH
+	</button>
+	<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#overweight">
+	  加碼存入ETH
 	</button>
     
     <hr/>
@@ -54,7 +115,10 @@
     <p>pool <span id="now_balance"></span> ETH</p>
     <p>平台目前保險箱數量 : <span id="coffer_vol"></span></p>
   
-    <p>累積推薦獎金 : <span id="RT_balance"></span> ETH</p>    
+    <p>累積推薦獎金 : <span id="RT_balance"></span> ETH</p> 
+    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#withdraw_commission">
+	  提領獎金
+	</button>   
    
     <p>我的推薦人 : <span id="generate_RT_no"></span></p>
     <p>第一代人數 : <span id="RT_no_01"></span></p>
@@ -69,14 +133,15 @@
     <p>提領傭金條件：<span id="withdraw_commision"></span></p>
     <p>swap 分配股東比例：<span id="distribute_fee"></span></p>
     <hr/>
+
   
 
 
 
     <!-- save_coffer -->
-	<div class="modal fade" id="save_coffer" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal fade " id="save_coffer" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 	  <div class="modal-dialog modal-dialog-centered" role="document">
-	    <div class="modal-content">
+	    <div class="modal-content modal_cos">
 	      <div class="modal-header">
 
 	        <h5 class="modal-title" id="exampleModalCenterTitle">save_coffer</h5>
@@ -95,6 +160,7 @@
 				  </div>				 
 				</div>
 				<P>我是 <span id="check_address"></span> </P>
+				<p>我的餘額：<span id="my_balance"></span></p>
 				<p>手續費 : <span id="_fee"></span> ETH</p>
 				<P>實際鎖入的枚數 <span id="real_save"></span> ETH</P>
 				<p>我將會拿到 <span id="WBC_GET"></span> WBC</p>
@@ -125,10 +191,60 @@
 	</div>
 
 
-	<!-- withdraw -->
-	<div class="modal fade" id="withdraw" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <!-- overweight -->
+	<div class="modal fade " id="overweight" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 	  <div class="modal-dialog modal-dialog-centered" role="document">
-	    <div class="modal-content">
+	    <div class="modal-content modal_cos">
+	      <div class="modal-header">
+
+	        <h5 class="modal-title" id="exampleModalCenterTitle">overweight</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+
+	      </div>
+
+	      <div class="modal-body">
+	      	<div class="container"  id="input_ticket">
+		        <div class="input-group mb-3">
+				  <input type="text" class="form-control ov_quantity" placeholder="0.00" aria-label="Recipient's username" aria-describedby="basic-addon2">
+				  <div class="input-group-append">
+				    <span class="input-group-text" id="basic-addon2">ETH</span>
+				  </div>				 
+				</div>
+				<P>我是 <span id="ov_check_address"></span> </P>
+				<p>我的餘額：<span id="ov_my_balance"></span></p>
+				<p>手續費 : <span id="ov_fee"></span> ETH</p>
+				<P>實際鎖入的枚數 <span id="ov_real_save"></span> ETH</P>
+				<p>我將會拿到 <span id="ov_WBC_GET"></span> WBC</p>
+				<p>解鎖保險櫃時應付 <span id="ov_payable_WBC"> </span> WBC</p>
+				<a  href="" data-toggle="collapse"  data-target="#recommender" aria-expanded="false" aria-controls="collapseExample">
+				    我的推薦人
+				</a>				
+				<div class="collapse" id="recommender">
+					  <div class="card card-body">					  		
+						<div>
+						  	<p>我的推薦人是 : <span id="have_recommender"> </span></p>
+						  	<p>他將會收到 <span id="ov_give_commision"></span> 枚ETH的推薦傭金。</p>
+						</div>				    
+					  </div>					  
+				</div>
+			</div>
+	      </div>
+
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" id="comfirm_overweight">Save changes</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+	<!-- withdraw -->
+	<div class="modal fade " id="withdraw" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content modal_cos">
 	      <div class="modal-header">
 	        <h5 class="modal-title" id="exampleModalCenterTitle">withdraw</h5>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -147,6 +263,36 @@
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 	        <button type="button" class="btn btn-primary">Save changes</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+	<!-- withdraw_commission -->
+	<div class="modal fade" id="withdraw_commission" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content  modal_cos">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalCenterTitle">withdraw_commision</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="container" id="withdraw_commision">		       
+		        <div class="input-group mb-3">
+					<input type="text" class="form-control _withdraw_commision" placeholder="提領金額" aria-label="Recipient's username" aria-describedby="basic-addon2">										 
+				</div>	
+				<p>累計推薦獎金 : <span id="accumulation_RT"></span> ETH</p>
+				<p>我可以提領的餘額 : <span id="can_withdraw_commision"></span> ETH</p>
+				<p>要超過 <span id="withdraw_condition"></span> ETH，才可提領。</p>				
+
+			</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" id="comfirm_withdraw_commision">withdraw_commision</button>
 	      </div>
 	    </div>
 	  </div>
@@ -173,6 +319,7 @@
 	<script src="./static/js/index.js"></script>
 	<script src="./static/js/recommender_contract.js"></script>
 	<script src="./static/js/fee.js"></script>
+	<script src="./static/js/wbc_contract.js"></script>
 	
 
 

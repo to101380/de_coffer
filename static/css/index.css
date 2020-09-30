@@ -1,0 +1,79 @@
+*{
+	  font-family:微軟正黑體;
+	  /*border: solid 1px ;	*/  
+	} 
+
+#SVCO{
+	display: none;
+	box-shadow: 0px 0px 25px rgba(32, 192, 216,0.8);
+}	
+
+#SVCO:hover{
+	box-shadow: 0px 0px 5px rgba(32, 192, 216,0.5);
+}
+
+
+
+#OVCO{
+	display: none;
+	box-shadow: 0px 0px 25px rgba(32, 192, 216,0.8);
+}
+
+#OVCO:hover{
+	box-shadow: 0px 0px 5px rgba(32, 192, 216,0.5);
+}
+
+
+.main_body{
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+	padding: 30px;
+	background-color: #f5f9ff;
+}	
+
+.coffer_card{
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+	padding: 30px;
+	flex-direction: column;
+}
+
+.my_address{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border:0.5px solid #bfcafc;
+	border-radius: 30px;	
+	padding: 8px;
+	visibility: hidden;
+
+}
+
+.status{
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: #49b782;	
+	margin: 8px;
+}
+
+.coffer_img{
+	background-image: url(./img/new_decoffer_img.png);
+	width: 180px;
+	height: 180px;
+	margin: 30px;
+	background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+}
+
+.modal_cos{
+	box-shadow: 0px 0px 25px rgba(210, 217, 255,0.8);
+	border:0px;
+	background-color: #f5f9ff;
+}
+
+
+
