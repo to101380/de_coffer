@@ -73,14 +73,54 @@
 
 		<div class="container">
 		  <div class="row justify-content-md-center">
-		    <div class="col col-lg-2">
-		      1 of 3
+		    <div class="col-md-4">
+		      
+		      <div class="info_crad">
+
+		      	<p> 狀態燈 : <span id="if_have"></span></p>
+			    <p>我的保險櫃地址：<span id="coffer_number"></span></p>
+			    <p>鎖入的ETH：<span id="coffer_value"></span> ETH</span></p>    
+			    <p>目前可提領金額: <span id="can_be_withdrawn"></span> ETH</p>    
+			    <p>解鎖條件 : 支付 <span id="coffer_WBC_balance"></span> /  <span id="payable_WBC"></span> WBC</p>
+			    <p>我的WBC餘額 : <span id="my_WBC_balance"></span></p>
+			    
+				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#withdraw">
+				  提領
+				</button>
+		      	
+		      </div>
+
 		    </div>
-		    <div class="col-md-auto">
-		      Variable width content
-		    </div>
-		    <div class="col col-lg-2">
-		      3 of 3
+		    <div class="col-md-4">
+
+		      <div class="info_crad">		      	
+			    <p>累積推薦獎金 : <span id="RT_balance"></span> ETH</p> 
+			    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#withdraw_commission">
+				  提領獎金
+				</button>   
+			   
+			    <p>我的推薦人 : <span id="generate_RT_no"></span></p>
+			    <p>第一代人數 : <span id="RT_no_01"></span></p>
+			    <p>第二代人數 : <span id="RT_no_02"></span></p>
+		      </div>
+
+		    </div>		    
+		    <div class="col-md-4">
+
+		      <div class="info_crad">
+		      	<p>pool <span id="now_balance"></span> ETH</p>
+			    <p>平台目前保險箱數量 : <span id="coffer_vol"></span></p>
+			  
+			    <hr/>
+		      	<p>手續費：<span id="fee"></span></p>
+			    <p>WBC手續費：<span id="WBC_fee"></span></p>
+			    <p>解倉應付利息比例：<span id="unlock_fee"></span></p>
+			    <p>推薦獎金1代：<span id="commision"></span></p>
+			    <p>推薦獎金2代：<span id="commision_02"></span></p>
+			    <p>提領傭金條件：<span id="withdraw_commision"></span></p>
+			    <p>swap 分配股東比例：<span id="distribute_fee"></span></p>
+		      </div>
+
 		    </div>
 		  </div>
 		</div>
@@ -91,49 +131,6 @@
 	
 	
 
-	<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#save_coffer">
-	  存入ETH
-	</button>
-	<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#overweight">
-	  加碼存入ETH
-	</button>
-    
-    <hr/>
-    <p> 狀態燈 : <span id="if_have"></span></p>
-    <p>我的保險櫃地址：<span id="coffer_number"></span></p>
-    <p>鎖入的ETH：<span id="coffer_value"></span> ETH</span></p>    
-    <p>目前可提領金額: <span id="can_be_withdrawn"></span> ETH</p>    
-    <p>解鎖條件 : 支付 <span id="coffer_WBC_balance"></span> /  <span id="payable_WBC"></span> WBC</p>
-    <p>我的WBC餘額 : <span id="my_WBC_balance"></span></p>
-    
-	<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#withdraw">
-	  提領
-	</button>
-	
-
-    <hr/>
-    <p>pool <span id="now_balance"></span> ETH</p>
-    <p>平台目前保險箱數量 : <span id="coffer_vol"></span></p>
-  
-    <p>累積推薦獎金 : <span id="RT_balance"></span> ETH</p> 
-    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#withdraw_commission">
-	  提領獎金
-	</button>   
-   
-    <p>我的推薦人 : <span id="generate_RT_no"></span></p>
-    <p>第一代人數 : <span id="RT_no_01"></span></p>
-    <p>第二代人數 : <span id="RT_no_02"></span></p>
-
-    <hr/>
-    <p>手續費：<span id="fee"></span></p>
-    <p>WBC手續費：<span id="WBC_fee"></span></p>
-    <p>解倉應付利息比例：<span id="unlock_fee"></span></p>
-    <p>推薦獎金1代：<span id="commision"></span></p>
-    <p>推薦獎金2代：<span id="commision_02"></span></p>
-    <p>提領傭金條件：<span id="withdraw_commision"></span></p>
-    <p>swap 分配股東比例：<span id="distribute_fee"></span></p>
-    <hr/>
-
   
 
 
@@ -142,9 +139,9 @@
 	<div class="modal fade " id="save_coffer" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 	  <div class="modal-dialog modal-dialog-centered" role="document">
 	    <div class="modal-content modal_cos">
-	      <div class="modal-header">
+	      <div class="modal-header modal_title">
 
-	        <h5 class="modal-title" id="exampleModalCenterTitle">save_coffer</h5>
+	        <h5 class="modal-title " id="exampleModalCenterTitle" style="color: white;">save_coffer</h5>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
@@ -195,9 +192,9 @@
 	<div class="modal fade " id="overweight" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 	  <div class="modal-dialog modal-dialog-centered" role="document">
 	    <div class="modal-content modal_cos">
-	      <div class="modal-header">
+	      <div class="modal-header modal_title">
 
-	        <h5 class="modal-title" id="exampleModalCenterTitle">overweight</h5>
+	        <h5 class="modal-title" id="exampleModalCenterTitle" style="color: white;">overweight</h5>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
@@ -244,9 +241,9 @@
 	<!-- withdraw -->
 	<div class="modal fade " id="withdraw" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 	  <div class="modal-dialog modal-dialog-centered" role="document">
-	    <div class="modal-content modal_cos">
-	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalCenterTitle">withdraw</h5>
+	    <div class="modal-content ">
+	      <div class="modal-header modal_cos">
+	        <h5 class="modal-title" id="exampleModalCenterTitle" style="color: white;">withdraw</h5>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
@@ -272,9 +269,9 @@
 	<!-- withdraw_commission -->
 	<div class="modal fade" id="withdraw_commission" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 	  <div class="modal-dialog modal-dialog-centered" role="document">
-	    <div class="modal-content  modal_cos">
-	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalCenterTitle">withdraw_commision</h5>
+	    <div class="modal-content ">
+	      <div class="modal-header modal_cos">
+	        <h5 class="modal-title" id="exampleModalCenterTitle" style="color: white;">withdraw_commision</h5>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
