@@ -76,8 +76,12 @@
 		    		<div class=" row justify-content-between my_address">
 		    			<div class="status"></div>
 		    			<div style="margin-right:8px; color:#6c83ab;"><span id="my_address"></span></div>
-		    		</div>
+		    		</div>		    		
 			    	<div class="coffer_img"></div>
+			    	<div class="platform_info">
+				    	<p>資金池水: <span id="now_balance"></span> ETH</p>
+				    	<p>保險箱數量 : <span id="coffer_vol"></span> </p>
+			    	</div>
 			      	<button type="button" class="btn btn-info btn-sm " id="SVCO" data-toggle="modal" data-target="#save_coffer">
 					  存入ETH
 					</button>
@@ -132,11 +136,7 @@
 		    </div>		    
 		    <div class="col-md-4">
 
-		      <div class="info_crad">
-		      	<p>pool <span id="now_balance"></span> ETH</p>
-			    <p>平台目前保險箱數量 : <span id="coffer_vol"></span></p>
-			  
-			    <hr/>
+		      <div class="info_crad">	      	
 		      	<p>手續費：<span id="fee"></span></p>
 			    <p>WBC手續費：<span id="WBC_fee"></span></p>
 			    <p>解倉應付利息比例：<span id="unlock_fee"></span></p>
