@@ -29,22 +29,44 @@
 
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	   <a class="navbar-brand" href="#">
-	    <img src="./static/css/img/YUNBO_LOGO_black.png" width="30" height="30" class="d-inline-block align-top" alt="">
-	    Decoffer
-	  </a>
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
-	  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-	    <div class="navbar-nav">
-	      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-	      <a class="nav-item nav-link" href="#">我的資產</a>	      
+	<!-- Navbar -->
+	<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+	    <div class="container">
+
+	      <!-- Brand -->
+	      <a class="navbar-brand" href="./index.html" target="_blank">
+	        <img src="./static/css/img/YUNBO_LOGO_black.png" width="30" height="30" class="d-inline-block align-top" alt="">
+	         DeCoffer
+	      </a>	
+
+	      <!-- Collapse -->
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+	        aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="navbar-toggler-icon"></span>
+	      </button>
+
+	      <!-- Links -->
+	      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+	        <!-- Left -->
+	        <ul class="navbar-nav mr-auto">
+	          <li class="nav-item active">
+	            <a class="nav-link" href="#">Home
+	              <span class="sr-only">(current)</span>
+	            </a>
+	          </li>
+	          <li class="nav-item">
+	            <a class="nav-link" href="https://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">我的資產</a>
+	          </li>         
+	        </ul>
+
+	       
+
+	      </div>
+
 	    </div>
-	  </div>
 	</nav>
-	<section class="main_body">
+	<section class="main_body" style="padding-top: 130px;">
 
 		<div class="container">
 		  <div class="row justify-content-md-center">
@@ -53,7 +75,7 @@
 		    	<div class=" coffer_card">
 		    		<div class=" row justify-content-between my_address">
 		    			<div class="status"></div>
-		    			<div style="margin-right:8px;"><span id="my_address"></span></div>
+		    			<div style="margin-right:8px; color:#6c83ab;"><span id="my_address"></span></div>
 		    		</div>
 			    	<div class="coffer_img"></div>
 			      	<button type="button" class="btn btn-info btn-sm " id="SVCO" data-toggle="modal" data-target="#save_coffer">
@@ -76,16 +98,19 @@
 		    <div class="col-md-4">
 		      
 		      <div class="info_crad">
-
-		      	<p> 狀態燈 : <span id="if_have"></span></p>
-			    <p>我的保險櫃地址：<span id="coffer_number"></span></p>
-			    <p>鎖入的ETH：<span id="coffer_value"></span> ETH</span></p>    
-			    <p>目前可提領金額: <span id="can_be_withdrawn"></span> ETH</p>    
-			    <p>解鎖條件 : 支付 <span id="coffer_WBC_balance"></span> /  <span id="payable_WBC"></span> WBC</p>
+		      	<p>目前可提領金額:</p> 
+		      	<p><span id="can_be_withdrawn"></span> ETH</p> 
+		      	<p>鎖入的ETH：<span id="coffer_value"></span> ETH</span></p> 
+		      	<p>狀態 : <span id="if_have"></span></p>
+			    <p>我的保險櫃地址：<span id="coffer_number"></span><span id="coffer_number_link"></span></p>
+			    <hr/>
+			        
+			    <p>解鎖條件 :</p>    			    
+			    <p>支付 <span id="coffer_WBC_balance"></span> /  <span id="payable_WBC"></span> WBC</p>
 			    <p>我的WBC餘額 : <span id="my_WBC_balance"></span></p>
-			    
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#withdraw">
-				  提領
+			    <a href="" data-toggle="modal" data-target="#SWAP_WBC" style="margin-bottom: 15px;">換取WBC</a>			    
+				<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#withdraw">
+				  解鎖
 				</button>
 		      	
 		      </div>
@@ -93,15 +118,15 @@
 		    </div>
 		    <div class="col-md-4">
 
-		      <div class="info_crad">		      	
-			    <p>累積推薦獎金 : <span id="RT_balance"></span> ETH</p> 
-			    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#withdraw_commission">
-				  提領獎金
-				</button>   
-			   
+		      <div class="info_crad card">				      	
+			    <p>累積推薦獎金 : </p>
+			    <p><span id="RT_balance"></span> ETH</p>       
 			    <p>我的推薦人 : <span id="generate_RT_no"></span></p>
 			    <p>第一代人數 : <span id="RT_no_01"></span></p>
 			    <p>第二代人數 : <span id="RT_no_02"></span></p>
+			    <button type="button" class="btn btn-info btn-sm" id="WDBtn" data-toggle="modal" data-target="#withdraw_commission">
+				  提領獎金
+				</button> 
 		      </div>
 
 		    </div>		    
@@ -117,7 +142,7 @@
 			    <p>解倉應付利息比例：<span id="unlock_fee"></span></p>
 			    <p>推薦獎金1代：<span id="commision"></span></p>
 			    <p>推薦獎金2代：<span id="commision_02"></span></p>
-			    <p>提領傭金條件：<span id="withdraw_commision"></span></p>
+			    <p>提領傭金條件：<span id="withdraw_commision"></span> ETH</p>
 			    <p>swap 分配股東比例：<span id="distribute_fee"></span></p>
 		      </div>
 
@@ -161,8 +186,8 @@
 				<p>手續費 : <span id="_fee"></span> ETH</p>
 				<P>實際鎖入的枚數 <span id="real_save"></span> ETH</P>
 				<p>我將會拿到 <span id="WBC_GET"></span> WBC</p>
-				<p>解鎖保險櫃時應付 <span id="_payable_WBC"> </span> WBC</p>
-				<a  href="" data-toggle="collapse"  data-target="#recommender" aria-expanded="false" aria-controls="collapseExample">
+				<p>解鎖保險櫃時應付 <span id="_payable_WBC"> </span> WBC</p>				
+				<a  href="" data-toggle="collapse"  data-target="#recommender" aria-expanded="false" aria-controls="collapseExample" >
 				    我的推薦人
 				</a>				
 				<div class="collapse" id="recommender">
@@ -215,7 +240,7 @@
 				<P>實際鎖入的枚數 <span id="ov_real_save"></span> ETH</P>
 				<p>我將會拿到 <span id="ov_WBC_GET"></span> WBC</p>
 				<p>解鎖保險櫃時應付 <span id="ov_payable_WBC"> </span> WBC</p>
-				<a  href="" data-toggle="collapse"  data-target="#recommender" aria-expanded="false" aria-controls="collapseExample">
+				<a  href="" data-toggle="collapse"  data-target="#recommender" aria-expanded="false" aria-controls="collapseExample" id="recommender_btn">
 				    我的推薦人
 				</a>				
 				<div class="collapse" id="recommender">
@@ -241,8 +266,8 @@
 	<!-- withdraw -->
 	<div class="modal fade " id="withdraw" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 	  <div class="modal-dialog modal-dialog-centered" role="document">
-	    <div class="modal-content ">
-	      <div class="modal-header modal_cos">
+	    <div class="modal-content modal_cos ">
+	      <div class="modal-header modal_title  ">
 	        <h5 class="modal-title" id="exampleModalCenterTitle" style="color: white;">withdraw</h5>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
@@ -269,8 +294,8 @@
 	<!-- withdraw_commission -->
 	<div class="modal fade" id="withdraw_commission" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 	  <div class="modal-dialog modal-dialog-centered" role="document">
-	    <div class="modal-content ">
-	      <div class="modal-header modal_cos">
+	    <div class="modal-content modal_cos ">
+	      <div class="modal-header modal_title">
 	        <h5 class="modal-title" id="exampleModalCenterTitle" style="color: white;">withdraw_commision</h5>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
@@ -290,6 +315,34 @@
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 	        <button type="button" class="btn btn-primary" id="comfirm_withdraw_commision">withdraw_commision</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+	<!-- SWAP_WBC -->
+	<div class="modal fade " id="SWAP_WBC" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content modal_cos ">
+	      <div class="modal-header modal_title  ">
+	        <h5 class="modal-title" id="exampleModalCenterTitle" style="color: white;">SWAP_WBC</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="container" id="swap_wbc">		       
+		        <div class="input-group mb-3">
+					<input type="text" class="form-control _withdraw" placeholder="提領金額" aria-label="Recipient's username" aria-describedby="basic-addon2">										 
+				</div>	
+				<p>我可以提領的餘額 : <span id="comfirm_can_be_withdraw"></span> ETH</p>				
+
+			</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Save changes</button>
 	      </div>
 	    </div>
 	  </div>

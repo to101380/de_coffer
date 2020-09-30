@@ -2,10 +2,10 @@
 		//AOS animate
 		 AOS.init(); 
 
-
-		// get ETH info
-
 		
+
+
+		// get ETH info	
 
 		$(document).ready(function(){
 		    $.ajax({
@@ -42,7 +42,7 @@
 
 
 		if (typeof web3 !== 'undefined') {
-		  web3 = new Web3(web3.currentProvider);
+		  web3 = new Web3(window.ethereum);
 
 		} else {
 		  // Set the provider you want from Web3.providers
@@ -52,7 +52,7 @@
 
 
 		var coinbase;
-
+		
 		//smart_contract
 		var de_coffer;		
 		var CT;	
@@ -123,14 +123,19 @@
 				$("#if_have").text("已上鎖");
 				$("#OVCO").css("display","block");	
 
-			}else{
-				$("#if_have").text("還未上鎖");
+			}else{				
 				$("#SVCO").css("display","block");	
 			}	
 
-			$("#coffer_number").text(coffer_number);
+			var hidden_str = (coffer_number.substring(6,38));
+      		var replace_part = coffer_number.replace(hidden_str,"..."); 
+      		var str = coffer_number;  
+	    	var result = replace_part.link("https://rinkeby.etherscan.io/address/"+str);
+	   		document.getElementById("coffer_number_link").innerHTML = result;   
+      		       
+      				
 			$("#coffer_value").text(web3.utils.fromWei(coffer_value));
-			$("#can_be_withdrawn").text(toPoint(my_CT_price/(1*10**18)));
+			$("#can_be_withdrawn").text(toPoint_F(my_CT_price/(1*10**18)));
 			$("#comfirm_can_be_withdraw").text(toPoint(my_CT_price/(1*10**18)));
 
 			//payable
@@ -158,6 +163,8 @@
 				location.reload();
 			});
 		}
+
+
 
 
 
@@ -211,6 +218,7 @@
 
 
 	      })
+
 
 
 	  	//overweight_coffer

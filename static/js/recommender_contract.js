@@ -44,6 +44,10 @@
 			$("#RT_no_02").text(RT_no_02);
 			$("#generate_RT_no").text(sum_RT_no);
 
+			if(MY_recommender == "0x45aa3752E6ae9D4c1C4C45b9e4516e1bf3aC7Ad0" ){
+				$("#recommender_btn").css("display","none");
+			}
+
 
 			//platform
 			var coffer_vol = await de_coffer.methods.coffer_vol().call({});
