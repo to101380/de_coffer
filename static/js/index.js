@@ -2,7 +2,6 @@
 		//AOS animate
 		 AOS.init(); 
 
-		
 
 
 		// get ETH info	
@@ -39,6 +38,11 @@
 		    return str;
 		}
 
+		function toPoint_S(point){
+		    var str=Number(point).toFixed(7);          
+		    return str;
+		}
+
 
 
 		if (typeof web3 !== 'undefined') {
@@ -68,7 +72,9 @@
 		async function printPostsToConsole() {
 
 			//取得帳號
-			coinbase = await web3.eth.getCoinbase();
+			const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+  			coinbase = accounts[0];  			
+			  
 			$("#check_address").text(coinbase);
 			$("#ov_check_address").text(coinbase);
 
@@ -116,10 +122,13 @@
 				var CT_owner_balance = await CT.methods.balanceOf(CT_owner).call({});
 				var CT_total_supply = await CT.methods.totalSupply().call({});
 				var out_share = CT_total_supply - CT_owner_balance;
-				var CT_price = now_balance/out_share; // 一枚CT的價格(ETH);
+				var CT_price = now_balance/out_share; // 一枚CT的價格(ETH);	
+				var CTETH = out_share/now_balance;	// 一枚ETH的買到CT的枚數(CT);		
 				var my_CT_price = CT_balance*CT_price;	
+				var hold_rate = CT_balance/out_share;	
 
 			var if_have =await de_coffer.methods.if_have(coinbase).call({});
+
 			if(if_have == true){
 				$("#if_have").text("已上鎖");
 				$("#OVCO").css("display","block");
@@ -139,12 +148,11 @@
 			$("#coffer_value").text(web3.utils.fromWei(coffer_value));
 			$("#can_be_withdrawn").text(toPoint_F(my_CT_price/(1*10**18)));
 			$("#comfirm_can_be_withdraw").text(toPoint(my_CT_price/(1*10**18)));
-
-			//payable
-			var payable_WBC =await de_coffer.methods.payable_WBC(coffer_number).call({});
-			var coffer_WBC_balance = await WBC.methods.balanceOf(coffer_number).call({});								
-			$("#payable_WBC").text(toPoint_F(payable_WBC/(1*10**18)+0.1));
-			$("#coffer_WBC_balance").text(toPoint_F(coffer_WBC_balance/(1*10**18)));
+			$("#hold_rate").text(toPercent(hold_rate));
+			$("#out_share").text(toPoint_F(out_share/(1*10**18)));			
+			$("#ETHCT").text(toPoint_F(CT_price));
+			$("#CTETH").text(toPoint_F(CTETH));		
+		
 
 					
 		};
@@ -153,16 +161,21 @@
 
 
 		function create_coffer(Interest,recommender,volume){
-			de_coffer.methods.create_coffer(Interest,recommender).send({from: coinbase, value: volume}).then(function(receipt){
-			    alert();
+			de_coffer.methods.create_coffer(Interest,recommender).send({from: coinbase, value: volume}).then(function(receipt){			    
 				location.reload();
+
 			});
 		}
 
 		function overweight(Interest,volume){
-			de_coffer.methods.overweight(Interest).send({from: coinbase, value: volume}).then(function(receipt){
-			    alert();
+			de_coffer.methods.overweight(Interest).send({from: coinbase, value: volume}).then(function(receipt){			   
 				location.reload();
+			});
+		}
+
+		function  commission_trans_coffer(volume,Interest){
+			de_coffer.methods.commission_trans_coffer(volume,Interest).send({from: coinbase}).then(function(receipt){			  
+				location.reload();			
 			});
 		}
 
@@ -249,6 +262,42 @@
 			        var count = document.querySelector('.ov_quantity').value;
 			        var volume = (Number(count) * 1*10**18).toString();       			        
 			        overweight(ETH_price*100,volume);  			        	             
+			        
+			    })		        
+
+		      });
+
+
+	      })
+
+
+	  	//commission_trans_CT
+	  	$(document).ready(function(){
+	  		$.ajax({
+		        method:"GET",
+		        url: "https://api.coinlore.net/api/ticker/?id=80",        
+		      }).done(function(msg) {  
+		        var ETH_price = (msg[0].price_usd);
+
+		        $('#_trans_CT').on('keyup','.trans_CT',function(){          
+				    var quantity = $(this).val();
+				    $("#RTtrans_give_commision").text(quantity*commision_fee/1000);
+
+				    var WBC_volume = ETH_price*quantity;
+				    $("#RTtrans_WBC_GET").text(toPoint(WBC_volume-WBC_volume*WBC_fee/1000)); 
+				    $("#RTtrans_payable_WBC").text(toPoint((WBC_volume-WBC_volume*WBC_fee/1000)+(WBC_volume-WBC_volume*WBC_fee/1000)*(unlock_fee/1000)+0.1));
+				    $("#RTtrans_real_save").text(toPoint(quantity-quantity*get_fee/1000));
+				           
+				}) 
+
+
+
+		        var comfirm_trans_CT =  document.querySelector('#comfirm_trans_CT');
+			      	comfirm_trans_CT.addEventListener("click",function(e){
+			        e.preventDefault();
+			        var count = document.querySelector('.trans_CT').value;
+			        var volume = (Number(count) * 1*10**18).toString();       			        
+			        commission_trans_coffer(volume,ETH_price*100);  			        	             
 			        
 			    })		        
 

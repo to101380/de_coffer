@@ -51,6 +51,7 @@ a{
 
 #WDBtn{
 	box-shadow: 0px 0px 25px rgba(32, 192, 216,0.8);
+	margin: 8px;
 }
 
 #WDBtn:hover{
@@ -97,6 +98,11 @@ a{
 	padding: 30px;
 	flex-direction: column;
 }
+
+.btn_unlock{
+	display: none;
+}
+
 
 .modal_title{
 	background-color: #138496;

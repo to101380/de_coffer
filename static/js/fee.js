@@ -47,7 +47,8 @@
 			var distribute_fee = await de_coffer.methods.get_distribute_fee().call({});
 			$("#fee").text(toPercent(get_fee/1000));
 			$("#_fee").text(toPercent(get_fee/1000)); 
-			$("#ov_fee").text(toPercent(get_fee/1000)); 
+			$("#ov_fee").text(toPercent(get_fee/1000));
+			$("#RTtrans_fee").text(toPercent(get_fee/1000));
 			$("#WBC_fee").text(toPercent(WBC_fee/1000));
 			$("#unlock_fee").text(toPercent(unlock_fee/1000));
 			$("#commision").text(toPercent(commision_fee/1000));
