@@ -103,8 +103,8 @@
 	      pay.addEventListener("click", function(e) {
 	        e.preventDefault();
 	        var count = document.querySelector('.WBC_volume').value;
-	        var volume = (Number(count) *1*10**18).toString();        
-	        transfer_WBC_toCoffer(volume);
+	        var volume = (Number(count)*10**18).toString(16);        
+	        transfer_WBC_toCoffer("0x"+volume);
 	      });
  
 

@@ -60,8 +60,11 @@
 	            </a>
 	          </li>
 	          <li class="nav-item">
-	            <a class="nav-link" href="https://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">我的資產</a>
-	          </li>         
+	            <a class="nav-link" href="https://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">Swap</a>
+	          </li> 
+	          <li class="nav-item">
+	            <a class="nav-link" href="https://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">Assetes</a>
+	          </li>          
 	        </ul>
 
 	       
@@ -298,7 +301,7 @@
 	  <div class="modal-dialog modal-dialog-centered" role="document">
 	    <div class="modal-content modal_cos ">
 	      <div class="modal-header modal_title  ">
-	        <h5 class="modal-title" id="exampleModalCenterTitle" style="color: white;">withdraw</h5>
+	        <h5 class="modal-title" id="exampleModalCenterTitle" style="color: white;">提領金額</h5>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
@@ -308,13 +311,16 @@
 		        <div class="input-group mb-3">
 					<input type="text" class="form-control _withdraw" placeholder="提領金額" aria-label="Recipient's username" aria-describedby="basic-addon2">										 
 				</div>	
+				<p>我要提領的金額 : <span id="keyup_withdraw"></span></p>
 				<p>我可以提領的餘額 : <span id="comfirm_can_be_withdraw"></span> ETH</p>				
 
 			</div>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save changes</button>
+	        <button type="button" class="btn btn-primary" id="approve_CT" onclick="approve_CT();">授權合約</button>
+	        <button type="button" class="btn btn-primary" id="comfirm_withdraw">提領</button>
+	        <button type="button" class="btn btn-primary disabled" id="disabled_comfirm_withdraw">提領</button>
 	      </div>
 	    </div>
 	  </div>
@@ -332,11 +338,12 @@
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	      	<div class="container" id="withdraw_commision">		       
+	      	<div class="container" id="key_withdraw_commision">		       
 		        <div class="input-group mb-3">
 					<input type="text" class="form-control _withdraw_commision" placeholder="提領金額" aria-label="Recipient's username" aria-describedby="basic-addon2">										 
 				</div>	
-				<p>累計推薦獎金 : <span id="accumulation_RT"></span> ETH</p>
+				<P>我要提領的金額 : <span id="keyup_withdraw_commision"></span></P>
+				<p>累計推薦獎金 : <span id="accumulation_RT"></span> ETH</p>				
 				<p>我可以提領的餘額 : <span id="can_withdraw_commision"></span> ETH</p>
 				<p>要超過 <span id="withdraw_condition"></span> ETH，才可提領。</p>				
 
@@ -344,7 +351,9 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary" id="comfirm_withdraw_commision">withdraw_commision</button>
+	        <button type="button" class="btn btn-primary" id="approve_RT" onclick="approve_RT();">授權合約</button>	  
+	        <button type="button" class="btn btn-primary" id="comfirm_withdraw_commision">提領傭金</button>	  
+	        <button type="button" class="btn btn-primary disabled" id="disabled_withdraw_commision">提領傭金</button>	        
 	      </div>
 	    </div>
 	  </div>
@@ -385,7 +394,9 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" id="_approve_RT" onclick="approve_RT();">授權合約</button>	
 	        <button type="button" class="btn btn-primary" id="comfirm_trans_CT">存入保險箱</button>
+	        <button type="button" class="btn btn-primary disabled" id="disabled_trans_CT">存入保險箱</button>
 	      </div>
 	    </div>
 	  </div>
@@ -402,7 +413,14 @@
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	      	<div class="container" id="_pay_WBC">		       
+	      	<div class="container" id="_pay_WBC">
+	      		<div class="container">
+	      			<div class="row center" style="margin: 13px;" >
+	      				<img src="./static/css/img/WI_stablecoin.png" width="50" height="50">
+	      				<img src="./static/css/img/new_decoffer_img.png" width="50" height="50">
+	      				<img src="./static/css/img/new_decoffer_img.png" width="50" height="50">
+	      			</div>
+	      		</div>		       
 		        <div class="input-group mb-3">
 					<input type="text" class="form-control WBC_volume" placeholder="WBC枚數" aria-label="Recipient's username" aria-describedby="basic-addon2">										 
 				</div>					
