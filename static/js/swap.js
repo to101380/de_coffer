@@ -111,7 +111,7 @@
 				    var quantity = $(this).val();
 				    var swap_WBC_volume = ((quantity*ETH_price)-(quantity*ETH_price*WBC_fee/1000)).toString();
 				  
-				  $(".to_WBC").attr("value",swap_WBC_volume);
+				  $(".to_WBC").attr("value",toPoint_F(swap_WBC_volume));
 				  		   
 
 				   
@@ -119,9 +119,9 @@
 
 				$('#swap_card').on('keyup','.to_WBC',function(){          
 				    var quantity = $(this).val();	
-				    var swap_WBC_volume = ((quantity*ETH_price)-(quantity*ETH_price*WBC_fee/1000)).toString();
+				    var swap_WBC_volume = (quantity/ETH_price).toString();
 				  
-				  $(".from_ETH").attr("value",swap_WBC_volume);			    
+				  $(".from_ETH").attr("value",toPoint_F(swap_WBC_volume));			    
 				    		   
 
 				   
