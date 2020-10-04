@@ -1,0 +1,137 @@
+<html>
+
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	 <!-- AOS animate -->
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+	<!-- Customized css -->
+	<link href="./static/css/swap.css" rel="stylesheet">
+	<!-- Jquery -->
+	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+	<!-- Web3 -->
+	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js" integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
+
+	<!-- ethers -->
+	<script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js"
+        type="application/javascipt"></script>
+
+	<link rel="icon" href="https://upload.cc/i1/2019/12/19/xMeFIq.png" type="image/x-icon">
+	<link rel="shortcut icon" href="https://upload.cc/i1/2019/12/19/xMeFIq.png" type="image/x-icon" / >
+
+	<meta name="google-site-verification" content="b_x8SoYFi5pJRVEkVqRtzjW2Gn7YOQxAoLgsvW-3yIA" />
+
+    <title> Decoffer </title>
+
+</head>
+
+<body>
+
+	<!-- Navbar -->
+	<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+	    <div class="container">
+
+	      <!-- Brand -->
+	      <a class="navbar-brand" href="./index.html" >
+	        <img src="./static/css/img/YUNBO_LOGO_black.png" width="30" height="30" class="d-inline-block align-top" alt="">
+	         DeCoffer
+	      </a>	
+
+	      <!-- Collapse -->
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+	        aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="navbar-toggler-icon"></span>
+	      </button>
+
+	      <!-- Links -->
+	      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+	        <!-- Left -->
+	        <ul class="navbar-nav mr-auto">
+	          <li class="nav-item active">
+	            <a class="nav-link" href="#">Home
+	              <span class="sr-only">(current)</span>
+	            </a>
+	          </li>
+	          <li class="nav-item">
+	            <a class="nav-link" href="https://mdbootstrap.com/material-design-for-bootstrap/">Swap</a>
+	          </li> 
+	          <li class="nav-item">
+	            <a class="nav-link" href="https://mdbootstrap.com/material-design-for-bootstrap/">Assetes</a>
+	          </li>          
+	        </ul>
+
+	       
+
+	      </div>
+
+	    </div>
+	</nav>
+
+
+	<section class="main_body" style="padding-top: 130px;">
+
+		<div class="swap_card" id="swap_card">
+			<div class="row">
+				<div class="col-12">
+					<p>from: </p>
+					<div class="input-group mb-3">
+							<input type="text" class="form-control from_ETH" placeholder="ETH" aria-label="Recipient's username" aria-describedby="basic-addon2">																 
+					</div>
+					<p>我的餘額 : <span id="swap_my_balance"></span> ETH</p>
+				</div>
+				
+			</div>
+
+			<div class="swap_icon"></div>
+
+			<div class="row">
+				<div class="col-12">
+					<p>to: </p>
+					<div class="input-group mb-3">
+							<input type="text" class="form-control to_WBC" placeholder="WBC" aria-label="Recipient's username" aria-describedby="basic-addon2">																 
+					</div>
+					<p>我的餘額 : <span id="swap_WBC_balance"></span> WBC</p>
+				</div>				
+			</div>
+			<button type="button" class="btn btn-primary btn-lg btn-block" id="comfirm_swap">swap</button>				
+		</div>
+
+	</section>
+
+
+
+    
+    
+	
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js" integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
+
+	
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	
+	 
+	<!-- Customized js -->
+	<script src="./static/js/swap.js"></script>
+	
+
+
+
+</body>
+
+
+</html>

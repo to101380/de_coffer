@@ -1,0 +1,101 @@
+*{
+	  font-family:微軟正黑體;
+	/*  border: solid 1px ;	*/  
+	} 
+
+p{
+	color: #6c83ab;
+	font-size: 12px;
+	font-weight: bold;
+}	
+
+a{
+	font-size: 13px;
+}
+
+#comfirm_swap{
+	margin: 10px 0px;
+}
+
+
+.main_body{	
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+	padding: 30px;	
+	background-color: #f5f9ff;
+}
+
+.cos_center{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}	
+
+.swap_card{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 48px;
+	margin: 5px;
+	border-radius: 12px;
+	border:0.5px solid #bfcafc;
+	box-shadow: 0px 0px 25px rgba(210, 217, 255,0.8);
+}
+
+.swap_icon{
+	background-image: url(./img/swap.png);
+	width: 30px;
+	height: 30px;
+	background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    opacity: 0.45;
+    margin: 15px;
+    margin-bottom:18px;
+}
+
+.WBC_icon{
+	background-image: url(./img/WI_stablecoin.png);
+	width: 15px;
+	height: 15px;	
+	background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+}
+
+.ETH_icon{
+	background-image: url(./img/ETH-icon.png);
+	width: 15px;
+	height: 15px;	
+	background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+}
+
+
+
+
+@media (min-width: 800px) and (max-width: 850px) {
+            .navbar:not(.top-nav-collapse) {
+                background: #6957f2!important;
+            }
+        }
+
+.view,body,html{
+	height:100%
+}
+
+.navbar{
+	background-color:rgba(105, 87, 242,0.9)
+}
+
+.page-footer,.top-nav-collapse{
+	background-color:#6957f2
+}
+
+@media only screen and (max-width:768px){
+	.navbar{background-color:#6957f2}
+}
