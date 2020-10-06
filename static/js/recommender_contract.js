@@ -32,9 +32,9 @@
 
 			//RT
 			var RT_balance =await RT.methods.balanceOf(coinbase).call({});
-			$("#RT_balance").text(toPoint(RT_balance/(1*10**18)));
+			$("#RT_balance").text(toPoint_F(RT_balance/(1*10**18)));
 			$("#accumulation_RT").text(toPoint(RT_balance/(1*10**18)));
-			$("#RTtrans_balance").text(toPoint(RT_balance/(1*10**18)));
+			$("#RTtrans_balance").text(toPoint_F(RT_balance/(1*10**18)));
 
 			if( RT_balance >= 3*10**18){
 				$("#can_withdraw_commision").text(toPoint(RT_balance/(1*10**18)));
