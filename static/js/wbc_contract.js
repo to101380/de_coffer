@@ -60,9 +60,9 @@
 			$("#payable_WBC").text(toPoint_F(payable_WBC/(1*10**18)+0.1));
 			$("#_cofferpayable_WBC").text(toPoint_F(payable_WBC/(1*10**18)+0.1));
 
-			var outstanding_balance = (payable_WBC/(1*10**18)-coffer_WBC_balance/(1*10**18)+0.1);
+			var outstanding_balance = (payable_WBC/(1*10**18)+0.1) - (coffer_WBC_balance/(1*10**18));
 
-			if(outstanding_balance<0){
+			if(outstanding_balance < 0){
 				$("#outstanding_balance").text("0");
 				$("#payable_status").text("已解鎖，持續生息，可隨時提領。");
 				$("#btn_lock").css("display","none");
