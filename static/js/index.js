@@ -137,7 +137,7 @@
 				$("#main_body").css("display","block");
 
 			}else{				
-				$("#SVCO").css("display","block");	
+				$("#SVCO").css("display","block");					
 			}	
 
 			var hidden_str = (coffer_number.substring(6,38));

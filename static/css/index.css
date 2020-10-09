@@ -82,6 +82,10 @@ a{
 	box-shadow: 0px 0px 5px rgba(32, 192, 216,0.5);
 }
 
+#if_airdrop{
+	display: none;
+}
+
 .center{
 	display: flex;
 	justify-content: center;

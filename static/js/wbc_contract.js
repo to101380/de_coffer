@@ -56,7 +56,13 @@
 			$("#_coffer_WBC_balance").text(toPoint_F(coffer_WBC_balance/(1*10**18)));
 
 			//payable
-			var payable_WBC =await de_coffer.methods.payable_WBC(coffer_number).call({});										
+			var payable_WBC =await de_coffer.methods.payable_WBC(coffer_number).call({});
+
+			if(payable_WBC == 0){
+				$("#if_airdrop").css("display","block");
+				$("#airdrop").text("空投獎勵");				
+			}
+												
 			$("#payable_WBC").text(toPoint_F(payable_WBC/(1*10**18)+0.1));
 			$("#_cofferpayable_WBC").text(toPoint_F(payable_WBC/(1*10**18)+0.1));
 
