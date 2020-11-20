@@ -118,7 +118,7 @@
 			var coffer_number = await de_coffer.methods.coffer_number(coinbase).call({});
 			var coffer_value = await de_coffer.methods.coffer_value(coinbase).call({});				
 			var now_balance = await de_coffer.methods.now_balance().call({});
-			var _nowbalance = now_balance - 12752564000000000000;
+			var _nowbalance = now_balance - 12752564000000000000 - 11599100000000000000;
 			console.log(now_balance);
 			var CT_balance = await CT.methods.balanceOf(coinbase).call({});
 
