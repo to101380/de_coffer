@@ -63,7 +63,7 @@
 			var coffer_vol = await de_coffer.methods.coffer_vol().call({});
 			var now_balance = await de_coffer.methods.now_balance().call({});			
 			$("#coffer_vol").text(coffer_vol);
-			$("#now_balance").text(toPoint_F(web3.utils.fromWei(now_balance)-12.752564-11.5991));
+			$("#now_balance").text(toPoint_F(web3.utils.fromWei(now_balance)-12.752564-11.7));
 
 			var RT_allowed = await RT.methods.allowed(coinbase,de_coffer_address).call({});
 			if(RT_allowed > 0){
