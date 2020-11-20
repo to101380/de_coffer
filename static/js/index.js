@@ -118,14 +118,16 @@
 			var coffer_number = await de_coffer.methods.coffer_number(coinbase).call({});
 			var coffer_value = await de_coffer.methods.coffer_value(coinbase).call({});				
 			var now_balance = await de_coffer.methods.now_balance().call({});
+			var _nowbalance = now_balance - 12752564000000000000;
+			console.log(now_balance);
 			var CT_balance = await CT.methods.balanceOf(coinbase).call({});
 
 				var CT_owner= await CT.methods.owner().call({});
 				var CT_owner_balance = await CT.methods.balanceOf(CT_owner).call({});
 				var CT_total_supply = await CT.methods.totalSupply().call({});
 				var out_share = CT_total_supply - CT_owner_balance;
-				CT_price = now_balance/out_share; // 一枚CT的價格(ETH);	
-				var CTETH = out_share/now_balance;	// 一枚ETH的買到CT的枚數(CT);		
+				CT_price = _nowbalance/out_share; // 一枚CT的價格(ETH);	
+				var CTETH = out_share/_nowbalance;	// 一枚ETH的買到CT的枚數(CT);		
 				var my_CT_price = CT_balance*CT_price;	
 				var hold_rate = CT_balance/out_share;	
 
